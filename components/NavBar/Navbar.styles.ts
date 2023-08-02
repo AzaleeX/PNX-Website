@@ -5,7 +5,7 @@ export default createStyles((theme) => ({
         display: 'flex',
         justifyContent: 'space-between',
         alignItems: 'center',
-        height: rem(56),
+        height: rem(60),
 
         [theme.fn.smallerThan('sm')]: {
             justifyContent: 'flex-start',
@@ -13,6 +13,7 @@ export default createStyles((theme) => ({
     },
 
     links: {
+        width: rem(300),
 
         [theme.fn.smallerThan('sm')]: {
             display: 'none',
@@ -55,6 +56,12 @@ export default createStyles((theme) => ({
         '&, &:hover': {
             backgroundColor: theme.fn.variant({ variant: 'light', color: theme.primaryColor }).background,
             color: theme.fn.variant({ variant: 'light', color: theme.primaryColor }).color,
+        },
+    },
+
+    image: {
+        [theme.fn.smallerThan('sm')]: {
+            display: 'none',
         },
     },
 }));
