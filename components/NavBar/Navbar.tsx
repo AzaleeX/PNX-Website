@@ -1,10 +1,13 @@
-import {Header, Group, ActionIcon, Container, Burger, Image, Text} from '@mantine/core';
-import {IconBrandTwitter, IconBrandYoutube, IconBrandInstagram, IconBrandDiscord} from '@tabler/icons-react';
+import {Header, Group, ActionIcon, Container, Image} from '@mantine/core';
+import {
+    IconBrandDiscord,
+    IconBrandGithub,
+} from '@tabler/icons-react';
 import { useDisclosure } from '@mantine/hooks';
 import { useState } from 'react';
 import useStyles from './Navbar.styles';
 import { ColorSchemeToggle } from '../ColorSchemeToggle/ColorSchemeToggle';
-import { MantineLogo } from '@mantine/ds';
+import image from '../../assets/powernukkitX.png';
 
 interface HeaderMiddleProps {
     links: { link: string; label: string }[];
@@ -30,27 +33,21 @@ export function Navbar({ links }: HeaderMiddleProps) {
     ));
     return (
         <>
-            <Header height={58} mb={120}>
-                <Container className={classes.inner}>
-                    <Group className={classes.links} spacing={4}>
-                        <Image src="https://avatars.githubusercontent.com/u/99014792?s=200&v=4" maw={28} />
-                        <Text maw={27}>PowerNukkitX</Text>
+            <Header height={55} mb={70}>
+                <Container className={classes.inner} fluid>
+                    <Group className={classes.image}>
+                        <Image src={image.src} maw={150} />
                     </Group>
-                    <Group className={classes.links} spacing={4}>
+                    <Group className={classes.links} spacing={5}>
                         {items}
                     </Group>
 
-                    <Burger opened={opened} onClick={toggle} className={classes.burger} size="sm" />
-
                     <Group spacing={3} className={classes.social} position="right" noWrap>
-                        <ActionIcon size="lg">
-                            <IconBrandTwitter size="1.1rem" stroke={1.5} />
+                        <ActionIcon size="lg" component={"a"} href="https://discord.gg/9ygGndMvaB" target="_blank">
+                            <IconBrandDiscord size="1.1rem" stroke={1.5} />
                         </ActionIcon>
-                        <ActionIcon size="lg">
-                            <IconBrandYoutube size="1.1rem" stroke={1.5} />
-                        </ActionIcon>
-                        <ActionIcon size="lg">
-                            <IconBrandDiscord size="1.1rem" stroke={1.5} href="https://discord.gg/9ygGndMvaB" />
+                        <ActionIcon size="lg" component={"a"} href="https://github.com/PowerNukkitX" target="_blank">
+                            <IconBrandGithub size="1.1rem" stroke={1.5} />
                         </ActionIcon>
 
                         <ColorSchemeToggle />
